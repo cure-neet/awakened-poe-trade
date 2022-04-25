@@ -1,0 +1,32 @@
+{
+  
+    "Add": "追加",
+    "Retry": "再試行",
+    "Offline": "オフライン",
+    "Online": "オンライン",
+    "You": "あなた",
+    "Browser": "ブラウザ",
+    "Search": "検索",
+    "min": "最小",
+    "max": " 最大",
+    "Restart required": "再起動が必要",
+    "Save": "保存",
+    "Cancel": "取消",
+    "Enabled": "有効",
+    "Disabled": "無効",
+    "No": "いいえ",
+    "Yes": "はい",
+    "Remove": "削除",
+    "implicit": "暗黙",
+    "explicit": "明示",
+    "enchant": "エンチャント",
+    "crafted": "クラフト",
+    "fractured": "フラクチャー",
+    "scourge": "スコージ",
+    "Not recognized modifier": "不明なMOD",
+    "Refresh": "更新",
+    "map.mods.heist": "Heist",
+    "map.mods.outdated": "廃止されている",
+    "Support development on": "開発を支援"
+  
+}

@@ -187,6 +187,17 @@ export default defineComponent({
     "Pseudo": "Псевдо",
     "Base item": "База предмета"
   },
+  "ja": {
+    "Hidden": "隠す",
+    "Collapse": "畳む",
+    "Stats ignored": "無視するMOD",
+    "{0} of {1}, stats": "MOD: {0}/{1}",
+    "Mods": "Mods",
+    "No relevant stats were found": "対応するMODが見つかりません",
+    "Pseudo": "疑似",
+    "Base item": "ベースアイテム"
+
+  },
   "zh_TW": {
     "Hidden": "被隱藏",
     "Collapse": "折疊",

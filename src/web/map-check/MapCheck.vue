@@ -81,5 +81,8 @@ export default defineComponent({
   "zh_TW_GGG" :{
     "has_outdataed" :"部份詞綴描述已變更，請檢查並更新地圖的危險詞綴。(當你刪除將所有舊版詞綴，此訊息會隱藏)"
   }
+  "ja": {
+    "has_outdated" :"いくつかのMODが廃止されました。危険なマップMODを再確認し、更新して下さい。（このメッセージは、古くなったMODが削除され次第、非表示となります）"
+  }
 }
 </i18n>

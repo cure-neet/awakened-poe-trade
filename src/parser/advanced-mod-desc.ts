@@ -49,7 +49,6 @@ export function parseModInfoLine (line: string, type: ModifierType): ModifierInf
   } else {
     const match = modText.match(_$.MODIFIER_LINE)
     if (!match) {
-      console.log(modText)
       throw new Error('Invalid regex for mod info line')
     }
 

@@ -136,6 +136,17 @@ export default defineComponent({
     "Quality:": "Качество:",
     "Level:": "Уровень:"
   },
+    "ja": {
+    "Item Level:": "アイテムレベル:",
+    "Stock:": "在庫数:",
+    "Map Tier:": "マップティア:",
+    "Area Level:": "エリアレベル:",
+    "Wings Revealed:": "翼廊を暴露:",
+    "Links:": "リンク:",
+    "White:": "白:",
+    "Quality:": "品質:",
+    "Level:": "レベル:"
+  },
   "zh_TW": {
     "Item Level:": "物品等級:",
     "Stock:": "堆疊數量:",

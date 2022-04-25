@@ -4,6 +4,7 @@ import { AppConfig } from '@/web/Config'
 const ENDPOINT_BY_LANG = {
   en: 'www.poewiki.net/wiki',
   ru: 'pathofexile-ru.gamepedia.com',
+  ja: 'www.poewiki.net/wiki',
   zh_TW: 'www.poewiki.net/wiki',
   zh_TW_GGC: 'www.poewiki.net/wiki'
 }

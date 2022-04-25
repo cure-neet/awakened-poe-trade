@@ -13,17 +13,17 @@
             'fas fa-check-square': !isDisabled
           }"></i>
           <div class="search-text flex-1 mr-1 relative flex min-w-0" style="line-height: 1rem;">
-            <span class="truncate"><item-modifier-text :text="text" :roll="rollValue" /></span>
-            <span class="search-text-full whitespace-pre-wrap"><item-modifier-text :text="text" :roll="rollValue" /></span>
+            <span class="truncate"><item-modifier-text :text="text" :roll="roll?.value" /></span>
+            <span class="search-text-full whitespace-pre-wrap"><item-modifier-text :text="text" :roll="roll?.value" /></span>
           </div>
         </button>
         <div class="flex items-baseline gap-x-1">
           <div v-if="showQ20Notice" :class="$style['qualityLabel']">{{ t('Q {0}%', [calcQuality]) }}</div>
           <div class="flex gap-x-px">
-            <input :class="$style['rollInput']" :placeholder="t('min')" :min="rollBounds?.min" :max="rollBounds?.max" :step="changeStep" type="number"
+            <input :class="$style['rollInput']" :placeholder="t('min')" :min="roll?.bounds?.min" :max="roll?.bounds?.max" :step="changeStep" type="number"
               v-if="showInputs" ref="inputMinEl"
               v-model.number="inputMin" @focus="inputFocus($event, 'min')" @mousewheel.stop>
-            <input :class="$style['rollInput']" :placeholder="t('max')" :min="rollBounds?.min" :max="rollBounds?.max" :step="changeStep" type="number"
+            <input :class="$style['rollInput']" :placeholder="t('max')" :min="roll?.bounds?.min" :max="roll?.bounds?.max" :step="changeStep" type="number"
               v-if="showInputs" ref="inputMaxEl"
               v-model.number="inputMax" @focus="inputFocus($event, 'max')" @mousewheel.stop>
           </div>
@@ -47,7 +47,7 @@
             :class="[$style['tag'], $style[`tag-${tag}`]]">{{ t(tag) }}</span>
           <filter-modifier-item-has-empty :filter="filter" />
         </div>
-        <div v-if="showRollBounds"
+        <div v-if="roll && roll.bounds"
           class="mr-4" style="width: 12.5rem;">
           <ui-slider
             class="search-slider-rail" style="padding: 0;" :dotSize="[0, 1.25*fontSize]" :height="1.25*fontSize"
@@ -56,19 +56,19 @@
 
             v-model="sliderValue"
             :marks="{
-              [rollBounds.min]: { label: 'min' },
-              [rollBounds.max]: { label: 'max' },
-              [rollValue]: { label: 'roll' }
+              [roll.bounds.min]: { label: 'min' },
+              [roll.bounds.max]: { label: 'max' },
+              [roll.value]: { label: 'roll' }
             }"
-            :min="rollBounds.min"
-            :max="rollBounds.max"
+            :min="roll.bounds.min"
+            :max="roll.bounds.max"
             :interval="changeStep"
           >
           <template v-slot:mark="{ pos, label, active }">
             <div class="custom-mark" :class="{ active, [label]: true }" :style="{ flex: pos }">
               <div class="custom-mark-tick" :style="{ 'left': `calc(${pos}% - 1px)` }"></div>
-              {{ label === 'min' ? rollBounds.min : label === 'max' ? rollBounds.max
-                : (rollValue === rollBounds.min || rollValue === rollBounds.max ? rollValue : '') }}
+              {{ label === 'min' ? roll.bounds.min : label === 'max' ? roll.bounds.max
+                : (roll.value === roll.bounds.min || roll.value === roll.bounds.max ? roll.value : '') }}
             </div>
           </template>
           </ui-slider>
@@ -210,9 +210,7 @@ export default defineComponent({
       fontSize: computed(() => AppConfig().fontSize),
       isDisabled: computed(() => props.filter.disabled),
       text: computed(() => t(props.filter.text)),
-      rollValue: computed(() => props.filter.roll?.value),
-      rollBounds: computed(() => props.filter.roll?.bounds),
-      showRollBounds: computed(() => props.filter.roll?.bounds != null),
+      roll: computed(() => props.filter.roll),
       isHidden: computed(() => props.filter.hidden != null),
       hiddenReason: computed(() => t(props.filter.hidden!)),
       showSourceInfo: computed(() =>
@@ -410,6 +408,34 @@ export default defineComponent({
     "1 Empty or Crafted Modifier": "1 свободное или ремесленное свойство",
     "Select only if item has 6 modifiers (1 of which is crafted) or if it has 5 modifiers": "Выбирайте, только если у предмета 6 свойств (1 из которых ремесленное) или если у него 5 свойств",
     "First ask yourself: would you buy an item with this stat?": "Сначала спросите себя: купили бы вы предмет с этим модом?"
+  },
+"ja": {
+    "Q {0}%": "品質: {0}%",
+    "DPS: #": "DPS: #",
+    "Elemental DPS: #": "元素 DPS: #",
+    "Physical DPS: #": "物理 DPS: #",
+    "Attacks per Second: #": "秒間アタック回数: #",
+    "Critical Strike Chance: #%": "クリティカル率: #%",
+    "Armour: #": "防具: #",
+    "Evasion Rating: #": "回避力: #",
+    "Energy Shield: #": "エナジーシールド: #",
+    "Ward: #": "ウォード: #",
+    "Block: #%": "ブロック率: #%",
+    "variant": "種類",
+    "corrupted": "コラプト状態",
+    "synthesised": "追憶",
+    "eldritch": "エルドリッチ",
+    "pseudo": "疑似",
+    "Roll is not variable": "計量できない値",
+    "Elemental damage is not the main source of DPS": "元素傷害不是主要DPS來源",
+    "Physical damage is not the main source of DPS": "物理傷害不是主要DPS來源",
+    "Filtering by exact Elemental Resistance unreasonably increases the price": "若是精確的使用各元素抗性查詢價格，查詢結果會過高",
+    "Crafted Chaos Resistance without Explicit mod has no value": "單獨的工藝混沌抗性是沒有價值的",
+    "Buyer will likely change anointment": "買家可能會更改塗油",
+    "Select only if price-checking as base item for crafting": "當你只想查詢基底價格的時候才選取",
+    "1 Empty or Crafted Modifier": "1個空詞綴或是工藝詞綴",
+    "Select only if item has 6 modifiers (1 of which is crafted) or if it has 5 modifiers": "當物品有6個詞綴(其中1個是工藝詞綴)，或是5個詞綴才選取",
+    "First ask yourself: would you buy an item with this stat?": "First ask yourself: would you buy an item with this stat?"
   },
   "zh_TW": {
     "Q {0}%": "品質: {0}%",

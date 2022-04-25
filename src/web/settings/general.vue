@@ -107,6 +107,19 @@ export default defineComponent({
     "PoE config file": "Файл настроек PoE",
     "Browse": "Выбрать",
     "Auto-download updates": "Автозагрузка обновлений"
+  },
+  "ja": {
+    "Font size": "フォントサイズ",
+    "Background, when APT window is clickable": "バックグラウンドにする",
+    "Transparent": "透明度",
+    "Show for Overlay and Price Check": "オーバーレイと価格チェックで表示",
+    "Show only for Overlay": "オーバーレイのみで表示",
+    "Clicking on background focuses game": "背景をクリックでゲームに戻る",
+    "Language": "言語",
+    "PoE log file": "PoEのログファイル",
+    "PoE config file": "PoEの設定ファイル」",
+    "Browse": "参照",
+    "Auto-download updates": "アップデータの自動ダウンロード"
   }
 }
 </i18n>

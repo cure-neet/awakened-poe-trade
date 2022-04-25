@@ -283,6 +283,18 @@ export default defineComponent({
 
 <i18n>
 {
+  "ja": {
+    "Matched:": "マッチ:",
+    "Trade": "トレード",
+    "Price": "価格",
+    "Stock": "在庫",
+    "iLvl": "ilvl",
+    "Level": "レベル",
+    "Quality": "品質",
+    "Listed": "日時",
+    "Seller": "売り手",
+    "Trade site request failed": "トレードサイトへのリクエストに失敗しました"
+  },
   "ru": {
     "Matched:": "Найдено:",
     "Trade": "Трейд",
