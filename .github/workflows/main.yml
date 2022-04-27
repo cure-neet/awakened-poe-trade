@@ -1,11 +1,11 @@
-name: Build
+name: Build and Publish
 
 on:
   push:
     branches:
       - '**'
-    tags-ignore:
-      - '**'
+    tags:
+      - 'R*'
     paths-ignore:
       - README.md
 
@@ -41,7 +41,7 @@ jobs:
       working-directory: ./main
     - run: yarn build
       working-directory: ./main
-    - run: yarn package -p onTagOrDraft
+    - run: yarn package -p onTag
       working-directory: ./main
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
