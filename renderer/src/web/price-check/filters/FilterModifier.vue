@@ -416,7 +416,7 @@ export default defineComponent({
     "Physical DPS: #": "物理 DPS: #",
     "Attacks per Second: #": "秒間アタック回数: #",
     "Critical Strike Chance: #%": "クリティカル率: #%",
-    "Armour: #": "防具: #",
+    "Armour: #": "アーマー: #",
     "Evasion Rating: #": "回避力: #",
     "Energy Shield: #": "エナジーシールド: #",
     "Ward: #": "ウォード: #",
