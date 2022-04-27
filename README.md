@@ -1,31 +1,39 @@
-# Awaken Poe Trade 中文測試版
-## [檔案下載](https://github.com/hray3182/awakened-poe-trade/releases/latest)
+# ![Awakener's Orb](https://web.poecdn.com/image/Art/2DItems/Currency/TransferOrb.png) Awakened PoE Trade
 
-## 使用方式
-1. alt+ctrl+D 查詢價格
-2. shift+space 開啟設定面版
-
-## 注意事項
+[![](https://user-images.githubusercontent.com/4292308/153364874-dde23599-278c-4350-8d86-dadbc4b978b3.svg)](https://somsubhra.github.io/github-release-stats/?username=SnosMe&repository=awakened-poe-trade)
+[![](https://user-images.githubusercontent.com/4292308/153364769-e4fe1e82-1bbc-46ac-8a3c-f5a98a5667cc.svg)](https://patreon.com/awakened_poe_trade)
+[![](https://user-images.githubusercontent.com/4292308/153364565-7a545d26-e617-4a33-a919-ff90d8feda3d.svg)](https://github.com/SnosMe/awakened-poe-trade/issues/22)
 
 
-1. 安裝後請到設定面版，general>選取"zh_TW"，台服則是選擇"zh_TW(GGC)"，設定完需重啟
-2. 台服需要手動設定聯盟名稱
-    * Shift + Space 開啟設定
-    * 點左上角齒輪
-    * 選 Price Check
-    * 在 or Private League 輸入"宿敵聯盟"
-3. 台服將不會顯示價格趨勢以及 quick check，原因是這些資料來源為 ninja
-4. 台服不會顯示物品 icon，原因是顯示物品 icon 的功能寫在 quick check裡
-5. 台服有部份描述與國際服不同，但我在台服測試的數量較少，也許會有很多詞綴無法查詢，麻煩有發現再回報給我。
-6. 有任何詞綴錯誤或是 UI 翻譯有意見，歡迎開 issue 或是 DC 聯絡
-7. 若是發現錯誤，有能力排除也歡迎 push 給我
+➡ [Download for Windows & Linux](https://snosme.github.io/awakened-poe-trade/download) ⬅
 
+## 日本語対応中
+変更点
+- 設定、価格チェック等のUIを日本語化
+- 文面を訳した事に伴うレイアウト崩れを一部修正
+- コード等が汚い部分が多い
+- 処理系は未着手　今後やります
+- バイナリ配布はまだ先
 
-## 聯絡方式
-### Discord: Ray#9876
+[フォーク元の台湾兄貴 @hray3182](https://github.com/hray3182/awakened-poe-trade)
 
+## Tool showcase
 
-## 感謝
-* 感謝雕像提供物品中英文對照表、回答我很多疑問
-* 感謝 PeterSenpai 提供技術支援
-* 感謝 rChin 提供技術支援
+| Gem | Rare | Unique | Currency |
+|-----|------|--------|----------|
+| ![](https://i.imgur.com/LTsH2DZ.png) | ![](https://i.imgur.com/2XL5Wl8.png) | ![](https://i.imgur.com/UTV6prE.png) | ![](https://i.imgur.com/dQ9Sns6.png) |
+
+### Development
+
+Follow instructions similar to CI [.github/workflows/main.yml](https://github.com/SnosMe/awakened-poe-trade/blob/master/.github/workflows/main.yml)
+
+### Acknowledgments
+
+- [vue-cli-plugin-electron-builder](https://github.com/nklayman/vue-cli-plugin-electron-builder)
+- [libuiohook](https://github.com/kwhat/libuiohook)
+- [robotjs](https://github.com/octalmage/robotjs)
+- [RePoE](https://github.com/brather1ng/RePoE)
+- [poeprices.info](https://www.poeprices.info/)
+- [poe.ninja](https://poe.ninja/)
+
+![](https://i.imgur.com/MATqhv7.png)
