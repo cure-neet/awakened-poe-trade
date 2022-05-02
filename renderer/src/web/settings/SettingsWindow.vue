@@ -159,6 +159,15 @@ export default defineComponent({
     "Maps": "マップの精査",
     "Debug": "デバッグ（開発用）",
     "Chat": "チャットコマンド"
+  },
+    "ui_ja": {
+    "Settings - Awakened PoE Trade": "設定 - Awakened PoE Trade",
+    "Hotkeys": "ホットキーの設定",
+    "General": "一般",
+    "Price check": "価格チェック",
+    "Maps": "マップの精査",
+    "Debug": "デバッグ（開発用）",
+    "Chat": "チャットコマンド"
   }
 }
 </i18n>

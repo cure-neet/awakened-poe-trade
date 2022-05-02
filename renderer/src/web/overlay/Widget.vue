@@ -317,6 +317,12 @@ export default defineComponent({
     "edit": "編集",
     "move": "移動",
     "delete": "削除"
+  },
+    "ui_ja": {
+    "hide": "隠す",
+    "edit": "編集",
+    "move": "移動",
+    "delete": "削除"
   }
 }
 </i18n>

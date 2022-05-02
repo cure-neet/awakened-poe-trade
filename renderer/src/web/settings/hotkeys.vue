@@ -108,6 +108,18 @@ export default defineComponent({
     "Stash tab scrolling": "スタッシュタブのスクロール",
     "Delve grid": "Delveのグリッド表示"
   },
+  "ui_ja": {
+    "You can clear hotkey by pressing Backspace": "Backspaceキーでクリア",
+    "Price check": "価格チェック",
+    "Auto-hide Mode": "自動的に隠す",
+    "Open without auto-hide": "表示したままにする",
+    "Overlay": "オーバーレイ",
+    "Open item on wiki": "Wikiを開く",
+    "Map check": "マップMODの精査",
+    "Item info": "アイテム情報",
+    "Stash tab scrolling": "スタッシュタブのスクロール",
+    "Delve grid": "Delveのグリッド表示"
+  },
   "zh_TW": {
     "You can clear hotkey by pressing Backspace": "你可以使用 Backspace(倒退鍵) 來清除快捷鍵。",
     "Price check": "查詢價格",

@@ -71,7 +71,10 @@ export default defineComponent({
   "ru": {
     "Not Set": "Не назначено"
   },
-    "ja": {
+  "ja": {
+    "Not Set": "未設定"
+  },
+  "ui_ja": {
     "Not Set": "未設定"
   }
 }

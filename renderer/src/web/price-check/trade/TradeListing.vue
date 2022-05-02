@@ -34,7 +34,7 @@
             </th>
             <th class="trade-table-heading" :class="{ 'w-full': !showSeller }">
               <div class="pr-2 pl-4">
-                <span class="ml-1" style="font-size:0.8em; padding-left: 0.375rem;">{{ t('Listed') }}</span>
+                <span class="ml-1" style="padding-left: 0.375rem;">{{ t('Listed') }}</span>
               </div>
             </th>
             <th v-if="showSeller" class="trade-table-heading w-full">
@@ -284,6 +284,18 @@ export default defineComponent({
 <i18n>
 {
   "ja": {
+    "Matched:": "マッチ:",
+    "Trade": "トレード",
+    "Price": "価格",
+    "Stock": "在庫",
+    "iLvl": "ilvl",
+    "Level": "レベル",
+    "Quality": "品質",
+    "Listed": "販売開始",
+    "Seller": "販売者",
+    "Trade site request failed": "トレードサイトへのリクエストに失敗しました"
+  },
+  "ui_ja": {
     "Matched:": "マッチ:",
     "Trade": "トレード",
     "Price": "価格",

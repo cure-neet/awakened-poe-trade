@@ -106,6 +106,10 @@ export default defineComponent({
   "ja": {
   "widget title": "ウィジェットタイトル",
   "search text": "検索文字列"
+  },
+  "ui_ja": {
+  "widget title": "ウィジェットタイトル",
+  "search text": "検索文字列"
   }
 }
 </i18n>

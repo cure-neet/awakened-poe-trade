@@ -52,6 +52,7 @@ const ENDPOINT_BY_LANG = {
   en: 'www.pathofexile.com',
   ru: 'ru.pathofexile.com',
   ja: 'www.pathofexile.com',
+  ui_ja: 'www.pathofexile.com',
   zh_TW: 'www.pathofexile.com',
   zh_TW_GGC: 'web.poe.garena.tw'
 }

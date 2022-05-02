@@ -60,7 +60,14 @@ export default defineComponent({
     "PoE window title": "Заголовок окна игры",
     "Restore clipboard": "Восстанавливать буфер обмена"
   },
-    "ja": {
+  "ja": {
+    "Log level": "ログレベル",
+    "Hardware Acceleration": "ハードウェアアクセラレーション",
+    "Disabled (render on CPU)": "無効（CPUで描画）",
+    "PoE window title": "PoEのウィンドウタイトル",
+    "Restore clipboard": "クリップボードを復元"
+  },
+  "ui_ja": {
     "Log level": "ログレベル",
     "Hardware Acceleration": "ハードウェアアクセラレーション",
     "Disabled (render on CPU)": "無効（CPUで描画）",

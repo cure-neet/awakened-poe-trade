@@ -49,6 +49,7 @@
         <ui-radio v-model="language" value="en" class="mr-4">English</ui-radio>
         <ui-radio v-model="language" value="ru" class="mr-4">Русский</ui-radio>
         <ui-radio v-model="language" value="ja" class="mr-4">日本語</ui-radio>
+        <ui-radio v-model="language" value="ui_ja" class="mr-4">日本語（UIのみ）</ui-radio>
         <ui-radio v-model="language" value="zh_TW" class="mr-4">zh-TW</ui-radio>
         <ui-radio v-model="language" value="zh_TW_GGC" class="mr-4">zh-TW(GGC)</ui-radio>
       </div>

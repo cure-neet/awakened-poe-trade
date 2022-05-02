@@ -53,6 +53,11 @@ export default defineComponent({
   "ja": {
     "Add command": "コマンドの追加",
     "press Enter": "Enterを自動入力"
+  },
+  "ui_ja": {
+    "Add command": "コマンドの追加",
+    "press Enter": "Enterを自動入力"
   }
+
 }
 </i18n>

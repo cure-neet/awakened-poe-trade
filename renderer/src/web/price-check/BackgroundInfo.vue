@@ -61,7 +61,15 @@ export default defineComponent({
     "Failed to load leagues": "Не удалось загрузить лиги",
     "Verify that the realm is not under maintenance and pathofexile.com is loading.": "Убедитесь, что сервера не находятся на обслуживании и pathofexile.com загружается."
   },
-  "ru": {
+  "ja": {
+    "Update available: {0}": "アップデートがあります: {0}",
+    "It will be installed automatically on exit": "終了時に自動インストールされます",
+    "You can download it from GitHub": "GitHubからダウンロードできます",
+    "Loading leagues...": "リーグ名を読み込み中...",
+    "Failed to load leagues": "リーグ名の読み込みに失敗",
+    "Verify that the realm is not under maintenance and pathofexile.com is loading.": "レルムがメンテナンス中ではないこと、pathofexile.comがダウンしていないことを確認してください"
+  },
+  "ui_ja": {
     "Update available: {0}": "アップデートがあります: {0}",
     "It will be installed automatically on exit": "終了時に自動インストールされます",
     "You can download it from GitHub": "GitHubからダウンロードできます",

@@ -101,6 +101,13 @@ export default defineComponent({
     "Image strip": "画像の表示",
     "Show button for active widgets": "ウィジェットを表示中にもボタン表示する",
     "add widget": "ウィジェットを追加"
+  },
+    "ui_ja": {
+    "Stopwatch": "ストップウォッチ",
+    "Stash search": "スタッシュ検索",
+    "Image strip": "画像の表示",
+    "Show button for active widgets": "ウィジェットを表示中にもボタン表示する",
+    "add widget": "ウィジェットを追加"
   }
 }
 </i18n>
