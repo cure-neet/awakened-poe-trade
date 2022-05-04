@@ -49,7 +49,7 @@
         <ui-radio v-model="language" value="en" class="mr-4">English</ui-radio>
         <ui-radio v-model="language" value="ru" class="mr-4">Русский</ui-radio>
         <ui-radio v-model="language" value="ja" class="mr-4">JP / JP</ui-radio>
-        <ui-radio v-model="language" value="ui_ja" class="mr-4">JP / English</ui-radio>
+        <ui-radio v-model="language" value="ui_ja" class="mr-4">JP / EN</ui-radio>
       </div>
     </div>
     <div class="mb-2">
@@ -68,6 +68,7 @@ import { useI18n } from 'vue-i18n'
 import { configModelValue, configProp } from './utils'
 
 export default defineComponent({
+  name: 'General',
   props: configProp(),
   setup (props) {
     const { t } = useI18n()
