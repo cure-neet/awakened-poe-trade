@@ -48,10 +48,8 @@
       <div class="mb-4 flex">
         <ui-radio v-model="language" value="en" class="mr-4">English</ui-radio>
         <ui-radio v-model="language" value="ru" class="mr-4">Русский</ui-radio>
-        <ui-radio v-model="language" value="ja" class="mr-4">日本語</ui-radio>
-        <ui-radio v-model="language" value="ui_ja" class="mr-4">日本語（UIのみ）</ui-radio>
-        <ui-radio v-model="language" value="zh_TW" class="mr-4">zh-TW</ui-radio>
-        <ui-radio v-model="language" value="zh_TW_GGC" class="mr-4">zh-TW(GGC)</ui-radio>
+        <ui-radio v-model="language" value="ja" class="mr-4">JP / JP</ui-radio>
+        <ui-radio v-model="language" value="ui_ja" class="mr-4">JP / English</ui-radio>
       </div>
     </div>
     <div class="mb-2">
@@ -117,9 +115,22 @@ export default defineComponent({
     "Show for Overlay and Price Check": "オーバーレイと価格チェックで表示",
     "Show only for Overlay": "オーバーレイのみで表示",
     "Clicking on background focuses game": "何もない場所をクリックでゲームに戻る",
-    "Language": "言語",
+    "Language": "このアプリの表示言語 / ゲームクライアントの設定言語",
     "PoE log file": "PoEのログファイル",
-    "PoE config file": "PoEの設定ファイル」",
+    "PoE config file": "PoEの設定ファイル",
+    "Browse": "参照",
+    "Auto-download updates": "アップデータの自動ダウンロード"
+  },
+  "ui_ja": {
+    "Font size": "フォントサイズ",
+    "Background, when APT window is clickable": "背景色の設定",
+    "Transparent": "完全に透過する",
+    "Show for Overlay and Price Check": "オーバーレイと価格チェックで表示",
+    "Show only for Overlay": "オーバーレイのみで表示",
+    "Clicking on background focuses game": "何もない場所をクリックでゲームに戻る",
+    "Language": "このアプリの表示言語 / ゲームクライアントの設定言語",
+    "PoE log file": "PoEのログファイル",
+    "PoE config file": "PoEの設定ファイル",
     "Browse": "参照",
     "Auto-download updates": "アップデータの自動ダウンロード"
   }
