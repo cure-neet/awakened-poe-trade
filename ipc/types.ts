@@ -33,7 +33,7 @@ export interface Config {
   accountName: string
   stashScroll: boolean
 
-  language: 'en' | 'ru' | 'ja' | 'ui_ja' | 'zh_TW' | 'zh_TW_GGC'
+  language: 'en' | 'ru' | 'ja' | 'zh_TW' | 'zh_TW_GGC'
   widgets: widget.Widget[]
 
   fontSize: number

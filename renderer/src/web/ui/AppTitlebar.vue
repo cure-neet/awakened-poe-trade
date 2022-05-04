@@ -1,9 +1,11 @@
 <template>
-  <div :class="$style.titlebar">
+  <div class="titlebar">
     <slot />
-    <button @click="$emit('click')" class="truncate">{{ title }}</button>
-    <button @click.stop="$emit('close')" tabindex="-1"
-      :class="[$style.button, $style.close]" title="Close"><i class="fas fa-window-close"></i></button>
+    <div class="text-gray-600 truncate leading-none px-4">{{ title }}</div>
+    <div class="flex">
+      <button @click.stop="$emit('close')" tabindex="-1"
+        class="titlebar-btn app-close pt-px" title="Close"><i class="fas fa-window-close"></i></button>
+    </div>
   </div>
 </template>
 
@@ -11,7 +13,6 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  emits: ['click', 'close'],
   name: 'AppTitlebar',
   props: {
     title: {
@@ -22,26 +23,29 @@ export default defineComponent({
 })
 </script>
 
-<style lang="postcss" module>
+<style lang="postcss">
 .titlebar {
-  @apply bg-gray-900 text-gray-600;
+  @apply bg-gray-900;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 1.5rem;
+}
+
+.titlebar-btn {
+  -webkit-app-region: no-drag;
+  @apply text-gray-600;
   line-height: 1.5rem;
+  height: 1.5rem;
+  @apply px-2;
 
-  button {
-    @apply px-2 pt-px;
+  &:hover {
+    @apply text-gray-500;
+  }
 
+  &.app-close {
     &:hover {
-      @apply text-gray-400;
-      background: linear-gradient(to top, theme('colors.gray.900'), theme('colors.gray.700'))
-    }
-
-    &.close:hover {
-      @apply text-red-200;
-      background: theme('colors.red.500');
+      @apply text-red-200 bg-red-500;
     }
   }
 }

@@ -67,13 +67,6 @@ export default defineComponent({
       }
     })
 
-    watch(() => props.config.wmFlags, (wmFlags) => {
-      if (wmFlags.includes('settings:price-check')) {
-        selectedComponent.value = SettingsPricecheck
-        wm.setFlag(props.config.wmId, 'settings:price-check', false)
-      }
-    }, { deep: true })
-
     const menuItems = computed(() => [
       {
         name: t('Hotkeys'),
@@ -158,7 +151,7 @@ export default defineComponent({
     "Debug": "Debug (Отладка)",
     "Chat": "Чат"
   },
-  "ja": {
+    "ja": {
     "Settings - Awakened PoE Trade": "設定 - Awakened PoE Trade",
     "Hotkeys": "ホットキーの設定",
     "General": "一般",
@@ -167,7 +160,7 @@ export default defineComponent({
     "Debug": "デバッグ（開発用）",
     "Chat": "チャットコマンド"
   },
-  "ui_ja": {
+    "ui_ja": {
     "Settings - Awakened PoE Trade": "設定 - Awakened PoE Trade",
     "Hotkeys": "ホットキーの設定",
     "General": "一般",

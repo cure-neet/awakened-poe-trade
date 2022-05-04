@@ -34,7 +34,7 @@
     "ini": "^3.0.0",
     "patch-package": "^6.2.0",
     "typescript": "4.6.x",
-    "winston": "^3.7.2"
+    "winston": "3.x.x"
   },
   "engines": {
     "node": ">=16"

@@ -1,11 +1,9 @@
 <template>
   <widget :config="{ ...config, anchor }" move-handles="none" readonly :removable="false">
-    <template v-if="item">
-      <map-check v-if="isMapLike"
-        :item="item" />
-      <item-info v-else
-        :item="item" />
-    </template>
+    <map-check v-if="isMapLike"
+      :item="item" />
+    <item-info v-else-if="item"
+      :item="item" />
   </widget>
 </template>
 
@@ -70,13 +68,12 @@ export default defineComponent({
 
     const isMapLike = computed(() => {
       if (!item.value) return false
-      const { category, info: { refName } } = item.value
+      const { category } = item.value
       return (
         category === ItemCategory.Map ||
         category === ItemCategory.HeistContract ||
         category === ItemCategory.HeistBlueprint ||
-        category === ItemCategory.Invitation ||
-        refName === 'Expedition Logbook')
+        category === ItemCategory.Invitation)
     })
 
     return {

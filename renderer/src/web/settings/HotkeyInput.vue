@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { KeyToCode, hotkeyToString } from '@/../../ipc/KeyToCode'
 
@@ -16,8 +16,8 @@ export default defineComponent({
   emits: ['update:modelValue'],
   props: {
     modelValue: {
-      type: String as PropType<string | null>,
-      default: null
+      type: String,
+      default: undefined
     },
     noModKeys: {
       type: Boolean,
@@ -47,9 +47,9 @@ export default defineComponent({
         let { code, ctrlKey, shiftKey, altKey } = e
 
         if (code.startsWith('Key')) {
-          code = code.slice('Key'.length)
+          code = code.substring('Key'.length)
         } else if (code.startsWith('Digit')) {
-          code = code.slice('Digit'.length)
+          code = code.substring('Digit'.length)
         } else if (e.key === 'Cancel' && code === 'Pause') {
           code = 'Cancel'
         }

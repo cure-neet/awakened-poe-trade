@@ -35,7 +35,7 @@ import { configProp, findWidget } from '../utils'
 import type { ItemCheckWidget } from '@/web/overlay/interfaces'
 import { STATS_ITERATOR, STAT_BY_MATCH_STR } from '@/assets/data'
 import MapsStatEntry from './MapsStatEntry.vue'
-import VirtualScroll, { VirtualScrollT } from '../../ui/VirtualScroll.vue'
+import VirtualScroll from '../../ui/VirtualScroll.vue'
 import type { MapStatMatcher } from './interfaces'
 
 function statToShowOrder (stat: Omit<MapStatMatcher, 'outdated'>) {
@@ -47,10 +47,7 @@ function statToShowOrder (stat: Omit<MapStatMatcher, 'outdated'>) {
 }
 
 export default defineComponent({
-  components: {
-    MapsStatEntry,
-    VirtualScroll: VirtualScroll as VirtualScrollT<MapStatMatcher>
-  },
+  components: { MapsStatEntry, VirtualScroll },
   props: configProp(),
   setup (props) {
     const search = ref('')

@@ -72,7 +72,6 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
 export function parseClipboard (clipboard: string) {
   const lines = clipboard.split(/\r?\n/)
   lines.pop()
-
   let sections: string[][] = [[]]
   lines.reduce((section, line) => {
     if (line !== '--------') {
@@ -95,7 +94,6 @@ export function parseClipboard (clipboard: string) {
   if (!parsed) {
     return null
   }
-
   sections.shift()
   parsed.rawText = clipboard
 
@@ -177,8 +175,6 @@ function findInDatabase (item: ParserState) {
     info = ITEM_BY_REF('GEM', item.name)
   } else if (item.category === ItemCategory.MetamorphSample) {
     info = ITEM_BY_REF('ITEM', item.name)
-  } else if (item.category === ItemCategory.Voidstone) {
-    info = ITEM_BY_REF('ITEM', 'Charged Compass')
   } else if (item.rarity === ItemRarity.Unique && !item.isUnidentified) {
     info = ITEM_BY_REF('UNIQUE', item.name)
   } else {
@@ -271,7 +267,6 @@ function parseNamePlate (section: string[]) {
       !section[1].startsWith(_$.RARITY)) {
     return null
   }
-
   const item: ParserState = {
     rarity: undefined,
     category: undefined,
@@ -314,7 +309,6 @@ function parseNamePlate (section: string[]) {
     default:
       return null
   }
-
   return item
 }
 
@@ -627,7 +621,6 @@ function parseModifiers (section: string[], item: ParsedItem) {
       const { modType, lines } = parseModType(statLines)
       const modInfo = parseModInfoLine(modLine, modType)
       parseStatsFromMod(lines, item, { info: modInfo, stats: [] })
-
       if (modType === ModifierType.Veiled) {
         item.isVeiled = true
       }
@@ -704,9 +697,6 @@ function parseCategoryByHelpText (section: string[], item: ParsedItem) {
     return SECTION_PARSED
   } else if (section[0] === _$.METAMORPH_HELP) {
     item.category = ItemCategory.MetamorphSample
-    return SECTION_PARSED
-  } else if (section[0] === _$.VOIDSTONE_HELP) {
-    item.category = ItemCategory.Voidstone
     return SECTION_PARSED
   }
 
