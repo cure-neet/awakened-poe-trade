@@ -155,6 +155,12 @@ function deltaFromGraph (graphPoints: Array<number | null>) {
     "Last 7 days": "直近7日間",
     "Getting price": "価格を取得中",
     "from poe.ninja ...": "poe.ninja ..."
+  },
+  "ui_ja": {
+    "Base item": "ベースアイテム",
+    "Last 7 days": "直近7日間",
+    "Getting price": "価格を取得中",
+    "from poe.ninja ...": "poe.ninja ..."
   }
 }
 </i18n>

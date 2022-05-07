@@ -84,6 +84,16 @@ export default defineComponent({
     "1 Week Ago": "1週間前",
     "2 Weeks Ago": "2週間前",
     "1 Month Ago": "1か月前"
+  },
+  "ui_ja": {
+    "Offline & Online": "オフライン&オンライン",
+    "In League": "リーグでプレイ中",
+    "Listed: Any Time": "販売開始時期：無期限",
+    "1 Day Ago": "1日前",
+    "3 Days Ago": "3日前",
+    "1 Week Ago": "1週間前",
+    "2 Weeks Ago": "2週間前",
+    "1 Month Ago": "1か月前"
   }
 }
 </i18n>

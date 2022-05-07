@@ -21,6 +21,7 @@ import { configProp } from './utils'
 import HotkeyInput from './HotkeyInput.vue'
 
 export default defineComponent({
+  name: 'Chat',
   components: { HotkeyInput },
   props: configProp(),
   setup (props) {
@@ -53,6 +54,11 @@ export default defineComponent({
   "ja": {
     "Add command": "コマンドの追加",
     "press Enter": "Enterを自動入力"
+  },
+  "ui_ja": {
+    "Add command": "コマンドの追加",
+    "press Enter": "Enterを自動入力"
   }
+
 }
 </i18n>

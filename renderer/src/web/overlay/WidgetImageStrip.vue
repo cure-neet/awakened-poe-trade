@@ -108,6 +108,10 @@ export default defineComponent({
   "ja": {
     "widget title": "ウィジェットタイトル",
     "Choose File": "ファイル選択"
+  },
+  "ui_ja": {
+    "widget title": "ウィジェットタイトル",
+    "Choose File": "ファイル選択"
   }
 }
 </i18n>

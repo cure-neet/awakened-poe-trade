@@ -35,7 +35,7 @@ import { configProp, findWidget } from '../utils'
 import type { ItemCheckWidget } from '@/web/overlay/interfaces'
 import { STATS_ITERATOR, STAT_BY_MATCH_STR } from '@/assets/data'
 import MapsStatEntry from './MapsStatEntry.vue'
-import VirtualScroll from '../../ui/VirtualScroll.vue'
+import VirtualScroll, { VirtualScrollT } from '../../ui/VirtualScroll.vue'
 import type { MapStatMatcher } from './interfaces'
 
 function statToShowOrder (stat: Omit<MapStatMatcher, 'outdated'>) {
@@ -47,7 +47,11 @@ function statToShowOrder (stat: Omit<MapStatMatcher, 'outdated'>) {
 }
 
 export default defineComponent({
-  components: { MapsStatEntry, VirtualScroll },
+  name: 'Maps',
+  components: {
+    MapsStatEntry,
+    VirtualScroll: VirtualScroll as VirtualScrollT<MapStatMatcher>
+  },
   props: configProp(),
   setup (props) {
     const search = ref('')
@@ -134,6 +138,11 @@ export default defineComponent({
     "Show icon for new mods": "Иконка у новых модов"
   },
   "ja": {
+    "Only selected": "選択した値のみ",
+    "Stat (found: {0})": "MOD (マッチ数: {0})",
+    "Show icon for new mods": "新しいMODにアイコンを表示"
+  },
+  "ui_ja": {
     "Only selected": "選択した値のみ",
     "Stat (found: {0})": "MOD (マッチ数: {0})",
     "Show icon for new mods": "新しいMODにアイコンを表示"

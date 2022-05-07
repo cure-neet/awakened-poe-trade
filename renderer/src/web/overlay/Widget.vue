@@ -77,6 +77,10 @@ export default defineComponent({
     hideable: {
       type: Boolean,
       default: true
+    },
+    inlineEdit: {
+      type: Boolean,
+      default: true
     }
   },
   setup (props) {
@@ -213,8 +217,14 @@ export default defineComponent({
         wm.hide(props.config.wmId)
       },
       toggleEdit () {
-        isEditing.value = !isEditing.value
         isMoving.value = false
+        if (props.inlineEdit) {
+          isEditing.value = !isEditing.value
+        } else {
+          const settings = wm.widgets.value.find(w => w.wmType === 'settings')!
+          wm.setFlag(settings.wmId, `settings:widget:${props.config.wmId}`, true)
+          wm.show(settings.wmId)
+        }
       },
       toggleMove () {
         isMoving.value = !isMoving.value
@@ -242,10 +252,8 @@ export default defineComponent({
 .actionsPanel {
   @apply py-1;
   color: #fff;
-  border: 2px solid rgba(255,255,255,0.66);
   background: rgba(0,0,0, 0.3);
   display: flex;
-  width: 2vw;
   flex-direction: column;
   @apply rounded;
 }
@@ -313,6 +321,12 @@ export default defineComponent({
     "delete": "удалить"
   },
     "ja": {
+    "hide": "隠す",
+    "edit": "編集",
+    "move": "移動",
+    "delete": "削除"
+  },
+    "ui_ja": {
     "hide": "隠す",
     "edit": "編集",
     "move": "移動",

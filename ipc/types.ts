@@ -32,16 +32,14 @@ export interface Config {
   hardwareAcceleration: boolean
   accountName: string
   stashScroll: boolean
-
-  language: 'en' | 'ru' | 'ja' | 'zh_TW' | 'zh_TW_GGC'
+  language: 'en' | 'ru' | 'ja' | 'ui_ja'
   widgets: widget.Widget[]
-
   fontSize: number
   disableUpdateDownload: boolean
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 11,
+  configVersion: 12,
   wikiKey: 'Alt + W',
   craftOfExileKey: null,
   overlayKey: 'Shift + Space',
@@ -83,7 +81,7 @@ export const defaultConfig = (): Config => ({
   hardwareAcceleration: false,
   accountName: '',
   stashScroll: true,
-  language: 'ja',
+  language: 'en',
   fontSize: 16,
   disableUpdateDownload: false,
   widgets: [
@@ -173,6 +171,19 @@ export const defaultConfig = (): Config => ({
       wmZorder: 'exclusive',
       wmFlags: ['invisible-on-blur', 'ignore-ui-visibility']
     },
+    {
+      wmId: 6,
+      wmType: 'item-search',
+      wmTitle: '',
+      wmWants: 'hide',
+      wmZorder: 6,
+      wmFlags: ['invisible-on-blur'],
+      anchor: {
+        pos: 'tl',
+        x: 10,
+        y: 20
+      }
+    } as widget.ItemSearchWidget,
     // --- DEFAULT ---
     {
       wmId: 101,
@@ -187,10 +198,10 @@ export const defaultConfig = (): Config => ({
         y: 46
       },
       entries: [
-        { id: 1, text: '"Pack Size: +3"' },
-        { id: 2, text: 'Reflect' },
-        { id: 3, text: '"Cannot Leech Life"' },
-        { id: 4, text: '"Cannot Leech Mana"' }
+        { id: 1, name: '', text: '"Pack Size: +3"', hotkey: null },
+        { id: 2, name: '', text: 'Reflect', hotkey: null },
+        { id: 3, name: '', text: '"Cannot Leech Life"', hotkey: null },
+        { id: 4, name: '', text: '"Cannot Leech Mana"', hotkey: null }
       ]
     } as widget.StashSearchWidget,
     {
@@ -206,12 +217,12 @@ export const defaultConfig = (): Config => ({
         y: 56
       },
       entries: [
-        { id: 1, text: 'Currency' },
-        { id: 2, text: '"Divination Card"' },
-        { id: 3, text: 'Fossil' },
-        { id: 4, text: '"Map Tier"' },
-        { id: 5, text: '"Map Device" "Rarity: Normal"' },
-        { id: 6, text: 'Tane Laboratory' }
+        { id: 1, name: '', text: 'Currency', hotkey: null },
+        { id: 2, name: '', text: '"Divination Card"', hotkey: null },
+        { id: 3, name: '', text: 'Fossil', hotkey: null },
+        { id: 4, name: '', text: '"Map Tier"', hotkey: null },
+        { id: 5, name: '', text: '"Map Device" "Rarity: Normal"', hotkey: null },
+        { id: 6, name: '', text: 'Tane Laboratory', hotkey: null }
       ]
     } as widget.StashSearchWidget,
     {

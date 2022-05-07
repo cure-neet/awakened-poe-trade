@@ -204,6 +204,14 @@ export default defineComponent({
     "Skill Gem": "スキルジェム",
     "too_many": "検索結果が多すぎるため、より正確な名前を入力してください",
     "not_found": "そのアイテムはありません"
+  },
+  "ui_ja": {
+    "Search by name…": "名前で検索...",
+    "Reset items": "リセット",
+    "Heist target:": "ハイスト目標:",
+    "Skill Gem": "スキルジェム",
+    "too_many": "検索結果が多すぎるため、より正確な名前を入力してください",
+    "not_found": "そのアイテムはありません"
   }
 }
 </i18n>

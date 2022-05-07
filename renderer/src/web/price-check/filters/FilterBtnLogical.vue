@@ -113,6 +113,26 @@ export default defineComponent({
     "Divergent": "相異の",
     "Phantasmal": "幻想の"
   },
+  "ui_ja": {
+    "Unidentified": "未鑑定",
+    "Veiled": "Veiled",
+    "Blighted": "荒廃した",
+    "Blight-ravaged": "Blight-ravaged",
+    "Mirrored": "ミラー状態",
+    "Not Mirrored": "非ミラー",
+
+    "Shaper": "シェイパー",
+    "Elder": "エルダー",
+    "Crusader": "聖戦者",
+    "Hunter": "ハンター",
+    "Redeemer": "贖い主",
+    "Warlord": "大将軍",
+
+    "Superior": "上質な",
+    "Anomalous": "異常な",
+    "Divergent": "相異の",
+    "Phantasmal": "幻想の"
+  },
   "zh_TW": {
     "Unidentified": "未鑑定",
     "Veiled": "隱匿",

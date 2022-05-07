@@ -96,8 +96,10 @@ export const LANGUAGE_DETECTOR = [{
   firstLine: '아이템 종류: '
 }, {
   lang: 'ja',
-//  firstLine: 'アイテムクラス: '
-firstLine: 'Item Class: '
+  firstLine: 'アイテムクラス: '
+}, {
+  lang: 'ui_ja',
+  firstLine: 'Item Class: '
 }, {
   lang: 'zh_TW',
   firstLine: '物品種類: '

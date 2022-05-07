@@ -196,7 +196,16 @@ export default defineComponent({
     "No relevant stats were found": "対応するMODが見つかりません",
     "Pseudo": "疑似",
     "Base item": "ベースアイテム"
-
+  },
+  "ui_ja": {
+    "Hidden": "隠す",
+    "Collapse": "畳む",
+    "Stats ignored": "MODを無視する",
+    "{0} of {1}, stats": "MOD: {0}/{1}",
+    "Mods": "Mods",
+    "No relevant stats were found": "対応するMODが見つかりません",
+    "Pseudo": "疑似",
+    "Base item": "ベースアイテム"
   },
   "zh_TW": {
     "Hidden": "被隱藏",

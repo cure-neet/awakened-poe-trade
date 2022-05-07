@@ -1,0 +1,72 @@
+Awakened PoE Trade 日本語フォークについて
+
+「ボクはElectronに触ったこともないしTypeScriptやVueの知識も薄いです　それでもメンテできますか？」
+「はい！メンテできますよ（ﾆｺﾆｺ）」
+という人向けのメンテナンスガイド
+
+0.　前置き
+この文書を作成しているのは2022/04/29であり、Awakened PoE Tradeの本家ビルドナンバーは3.17.10005です
+以下の記述でバージョン等が明記されていない場合、すべてそれらが前提になります
+あとAwakened PoE Tradeは長くて書くのが面倒なのでAPTと略します
+
+1.　前提パッケージや環境
+git：Windows版2.36.0を使用
+node.js：Windows版LTS, v16.14.2を使用
+Python：Windows版3.7.9を使用
+VSCode：Windows版1.66.2を使用
+
+2.　自分でビルドする際の流れ
+rendererディレクトリ内で
+yarn --frozen-lockfile && yarn make-index-files && yarn build
+mainディレクトリ内で
+yarn --frozen-lockfile && yarn build && yarn package
+
+3.　ディレクトリ構成（ざっくり）
+renderer　主にオーバーレイの中身　基本はこちらを触ることになると思われる
+  ├─public
+  |  └─data
+  |     └─[言語]　アイテム情報やMOD情報がndjsonで記述されている　幾つかの置き換え用テキストもある
+  └─src
+      ├─assets　フォントとか表示系の制御っぽい　よくわからない
+      ├─parser　文字通り、実際にアイテム情報をパースする　多分触る必要はない
+      └─web　ウィジェット等、オーバーレイ内で表示されるものが格納されているメイン部分　ディレクトリ直下のvueとtsには日本語リソースはない
+        ├─background　文字通りバックグラウンド処理で使われる　これも多分触る必要はない
+        ├─client-log　PoEのログファイルを利用し、トレードwisを取得　APTでチャットコマンドをあれこれする為のやつ
+        ├─item-check　アイテム情報をチェックするウィジェット？　価格チェックには多分関係がないので注意
+        ├─map-check　マップMODのチェックをするウィジェット　MapCheck.vueに日本語UIテキスト
+        ├─other-services　WikiやCraftOfExileを開くためのウィジェット　wiki.tsに言語別のエンドポイントの分岐があるがとりあえずpoewikiに投げた
+        ├─overlay　APTのオーバーレイ（Shift+Spaceで開くやつ）へ任意で追加するウィジェット類　殆どの.vueに日本語UIテキスト
+        ├─price-check　価格チェックに使うメイン部分　.vueにテキストリソースがあるけど、使用される条件がよくわからないので未訳
+        |  ├─filters　メイン部分の中のメイン部分１　ここのvueの殆どにも日本語UIテキスト
+        |  |  └─pseudo　トレードWebに投げるクエリを整形している？よく読んでない
+        |  ├─price-prediction　文字通り価格予想　poepriceに投げてる
+        |  ├─related-items　よくわからない
+        |  ├─stack-value　よくわからない　バルクトレード用？
+        |  ├─trade　メイン部分の中メイン部分２　表示系なのでvueに日本語UIテキスト
+        |  ├─trend　忍者から直近の相場を取得する　vueに日本語がちょっとある
+        |  └─unidentified-resolver　多分未鑑定ユニークを検索した場合に使われる分岐　未訳
+        ├─settings　APTのオーバーレイの歯車アイコンで開く設定画面とその各タブの内容　当然ながらvueに日本語UIテキスト
+        |  └─maps　設定画面内で特にマップMODの設定部分　maps.vueに日本語UIテキスト
+        └─ui　文字通りUI全般　テキストの置き換えは他でやっている為日本語リソースはない
+main オーバーレイ以外の部分のリソース（タスクトレイに表示するアイコンとかを指す）
+  ├─build　デスクトップアイコン、およびelectronによる実行部
+  ├─patches　robotjsへのパッチ　自力でパッチする必要があるのかは不明　当てなくても動いてる（なぜ？）
+  └─src　パーサとかの処理系を駆動させる基本部分　基本日本語リソースは無いが、アイテム情報を取得する際の言語別定義がpoll-clipboard.tsでハードコードされてる
+ipc　mainとrendererの橋渡しをするやつら
+
+4.　参照するjsonについて
+アイテム名のDB renderer\public\data\ja\items.ndjson
+MODの文面のDB renderer\public\data\ja\stats.ndjson
+items.ndjson、およびstats.ndjsonの"ref"部分は今のところ日本語にする必要がない
+トレードWebサイトがまだ日本語クエリを受け付けない為、変更するとエラーになる
+今後トレードサイトが日本語対応した場合には修正しなければならない
+またトレードサイトのURLは renderer\src\web\price-check\trade\common.ts 内に言語別で定義されており、
+日本語のトレードサイトが外注された場合、そこを参照するように変更
+
+4.1.　上記ndjsonの出力
+PyPoEやRePoEを利用して出力する
+pypoeの使用例
+$ pypoe_exporter config set language Japanese
+（事前にPyPoE\cli\exporter\core.pyに存在するリストにJapaneseを追加しておく）
+$ pypoe_exporter dat json 出力するファイル名.json --file 入力するdat
+あとPyPoEやRePoEの入力元としてcontent.ggpkが必要なのでSteam版ではなくグローバル版を別途インストールしておく

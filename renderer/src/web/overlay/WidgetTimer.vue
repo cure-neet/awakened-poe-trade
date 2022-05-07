@@ -1,13 +1,14 @@
 <template>
-  <widget :config="config" move-handles="center" v-slot="{ isMoving }" readonly :hideable="false">
+  <widget :config="config" move-handles="center" v-slot="{ isMoving }" :inline-edit="false" :hideable="false">
     <div :class="$style.wrapper">
       <div :class="$style.timer">
         <span>{{ formatted.h }}:{{ formatted.m }}:</span><span>{{ formatted.s }}</span>
       </div>
-      <div v-if="!isMoving" :class="$style.controls" class="absolute top-0 left-0 w-full flex justify-center">
+      <div v-if="!isRunning" :class="$style.paused">{{ t('paused') }}</div>
+      <div v-if="!isMoving" :class="$style.controls">
         <button v-if="!isRunning" @click="start" :class="$style.button"><i class="fas fa-play"></i></button>
         <button v-else @click="stop" :class="$style.button"><i class="fas fa-pause"></i></button>
-        <button @click="restart" :class="$style.button"><i class="fas fa-redo"></i></button>
+        <button @click="reset" :class="$style.button"><i class="fas fa-redo"></i></button>
       </div>
     </div>
   </widget>
@@ -15,7 +16,9 @@
 
 <script lang="ts">
 import { defineComponent, PropType, inject, ref, onUnmounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import Widget from './Widget.vue'
+import { MainProcess } from '@/web/background/IPC'
 import { Duration } from 'luxon'
 import { WidgetManager, StopwatchWidget } from './interfaces'
 
@@ -31,14 +34,29 @@ export default defineComponent({
     const wm = inject<WidgetManager>('wm')!
 
     if (props.config.wmFlags[0] === 'uninitialized') {
-      props.config.wmFlags = []
       props.config.anchor = {
         pos: 'cc',
         x: (Math.random() * (60 - 40) + 40),
         y: (Math.random() * (60 - 40) + 40)
       }
+      props.config.toggleKey = null
+      props.config.resetKey = null
       wm.show(props.config.wmId)
     }
+    props.config.wmFlags = ['invisible-on-blur']
+
+    const hotkeyController = MainProcess.onEvent('MAIN->OVERLAY::stopwatch', (action) => {
+      if (action.wmId !== props.config.wmId) return
+
+      if (action.type === 'start-stop') {
+        isRunning.value ? stop() : start()
+      } else if (action.type === 'reset') {
+        reset()
+      }
+    })
+    onUnmounted(() => {
+      hotkeyController.abort()
+    })
 
     const isRunning = ref(false)
     const millis = ref(0)
@@ -62,14 +80,21 @@ export default defineComponent({
     function start () {
       isRunning.value = true
       prevTick.value = Date.now()
+      wm.setFlag(props.config.wmId, 'invisible-on-blur', false)
     }
     function stop () {
       updateTime()
       isRunning.value = false
+      if (millis.value < 1000) {
+        wm.setFlag(props.config.wmId, 'invisible-on-blur', true)
+      }
     }
-    function restart () {
+    function reset () {
       prevTick.value = Date.now()
-      millis.value = 0
+      millis.value = (isRunning.value) ? 1000 : 0
+      if (!isRunning.value) {
+        wm.setFlag(props.config.wmId, 'invisible-on-blur', true)
+      }
     }
     function updateTime () {
       if (isRunning.value) {
@@ -79,12 +104,15 @@ export default defineComponent({
       }
     }
 
+    const { t } = useI18n()
+
     return {
+      t,
       formatted,
       isRunning,
       start,
       stop,
-      restart
+      reset
     }
   }
 })
@@ -93,9 +121,8 @@ export default defineComponent({
 <style lang="postcss" module>
 .timer {
   font-size: 2rem;
-  font-family: Consolas;
-  color: #fff;
   line-height: 1;
+  @apply font-mono;
   text-shadow: 0 1px 3px rgb(0, 0, 0);
 }
 
@@ -103,17 +130,48 @@ export default defineComponent({
   background: rgba(29, 29, 29, 0.863);
   @apply rounded;
   line-height: 1;
-  color: #fff;
   width: 2rem;
   height: 2rem;
   @apply mx-1;
 }
 
+.controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .wrapper {
+  @apply px-2 py-1;
+  @apply rounded text-white;
+  @apply bg-gray-300 bg-opacity-30;
+
   &:not(:hover) {
     .controls {
       display: none;
     }
   }
 }
+
+.paused {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 1;
+  @apply px-2 rounded shadow;
+  @apply bg-orange-700 text-white;
+}
 </style>
+
+<i18n>
+{
+  "ru": {
+    "paused:": "остановлен"
+  }
+}
+</i18n>

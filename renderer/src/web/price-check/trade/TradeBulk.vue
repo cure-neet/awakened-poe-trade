@@ -261,6 +261,17 @@ export default defineComponent({
     "Listed": "販売開始",
     "Seller": "販売者",
     "Trade site request failed": "トレードサイトへのリクエストに失敗しました"
+  },
+  "ui_ja": {
+    "Matched:": "マッチ:",
+    "Trade": "トレード",
+    "Price": "価格",
+    "bulk": "バルク",
+    "Stock": "在庫",
+    "Fulfill": "最大",
+    "Listed": "販売開始",
+    "Seller": "販売者",
+    "Trade site request failed": "トレードサイトへのリクエストに失敗しました"
   }
 }
 </i18n>

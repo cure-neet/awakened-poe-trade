@@ -70,6 +70,14 @@ export default defineComponent({
   "ru": {
     "You have": "В наличии",
     "Stack": "Стак"
+  },
+  "ja": {
+    "You have": "所持 ",
+    "Stack": "最大スタック"
+  },
+  "ui_ja": {
+    "You have": "所持 ",
+    "Stack": "最大スタック"
   }
 }
 </i18n>

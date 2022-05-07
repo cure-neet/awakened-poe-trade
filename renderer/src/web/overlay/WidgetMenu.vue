@@ -8,6 +8,7 @@
             class="bg-gray-800 rounded text-gray-100 ml-1 p-2 leading-none whitespace-nowrap border"
           >
             <i v-if="widget.wmType === 'settings'" class="fas fa-cog align-bottom" />
+            <i v-else-if="widget.wmType === 'item-search'" class="fas fa-search align-bottom" />
             <template v-else>{{ widget.wmTitle || `#${widget.wmId}` }}</template>
           </button>
         </template>
@@ -96,6 +97,13 @@ export default defineComponent({
     "add widget": "добавить виджет"
   },
     "ja": {
+    "Stopwatch": "ストップウォッチ",
+    "Stash search": "スタッシュ検索",
+    "Image strip": "画像の表示",
+    "Show button for active widgets": "ウィジェットを表示中にもボタン表示する",
+    "add widget": "ウィジェットを追加"
+  },
+    "ui_ja": {
     "Stopwatch": "ストップウォッチ",
     "Stash search": "スタッシュ検索",
     "Image strip": "画像の表示",

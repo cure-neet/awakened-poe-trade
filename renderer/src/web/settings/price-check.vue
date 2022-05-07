@@ -120,6 +120,7 @@ import type { PriceCheckWidget } from '@/web/overlay/interfaces'
 import * as Leagues from '../background/Leagues'
 
 export default defineComponent({
+  name: 'Price check',
   props: configProp(),
   setup (props) {
     const configWidget = computed(() => findWidget<PriceCheckWidget>('price-check', props.config)!)
@@ -215,6 +216,28 @@ export default defineComponent({
     "Show price prediction": "Показывать приблизительную цену"
   },
   "ja": {
+    "Account name": "アカウント名",
+    "or Private League": "プライベートリーグの場合は直接入力",
+    "Show seller": "販売者を表示",
+    "Last character name": "最後にログインしたキャラクター名",
+    "Your items will be highlighted even if this setting is off": "この設定がオフであっても、あなた自身の出品物はハイライトされます",
+    "Fill stat values": "ロールに対する振れ幅設定",
+    "Exact roll": "ロールに完全一致",
+    "Show memorized cursor position": "カーソル位置を記憶",
+    "Minimum buyout price": "最小価格",
+    "Chaos Orbs": "混沌のオーブ",
+    "Extra time to prevent spurious Rate limiting": "連続で検索せず、以下の秒数を待機する",
+    "seconds": "秒",
+    "Settings below are a compromise between increasing load on PoE website and convenient price checking / more accurate search.": "以下の設定は、より正確または簡単な価格チェックを可能とするが、同時にPoEのWebサイトに対する読み込み回数と負荷を増加させる。",
+    "Show indication on collapsed listings": "一人が複数出品している場合にインジケータ表示",
+    "Perform an auto search, when pressing": "以下のキーが入力された際には自動で検索する",
+    "Always select \"Stock\" filter": "\"在庫\" フィルターを常に選択する",
+    "League": "リーグ名",
+    "Loading leagues...": "リーグ名を読み込み中...",
+    "Failed to load leagues": "リーグ名の読み込みに失敗",
+    "Show price prediction": "予想価格の表示（実際の価値と異なる場合があります）"
+  },
+  "ui_ja": {
     "Account name": "アカウント名",
     "or Private League": "プライベートリーグの場合は直接入力",
     "Show seller": "販売者を表示",

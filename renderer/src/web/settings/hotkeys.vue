@@ -60,6 +60,7 @@ import { PriceCheckWidget } from '@/web/overlay/interfaces'
 import HotkeyInput from './HotkeyInput.vue'
 
 export default defineComponent({
+  name: 'Hotkeys',
   components: { HotkeyInput },
   props: configProp(),
   setup (props) {
@@ -97,6 +98,18 @@ export default defineComponent({
     "Delve grid": "Сетка \"Спуска\""
   },
   "ja": {
+    "You can clear hotkey by pressing Backspace": "Backspaceキーでクリア",
+    "Price check": "価格チェック",
+    "Auto-hide Mode": "自動的に隠す",
+    "Open without auto-hide": "表示したままにする",
+    "Overlay": "オーバーレイ",
+    "Open item on wiki": "Wikiを開く",
+    "Map check": "マップMODの精査",
+    "Item info": "アイテム情報",
+    "Stash tab scrolling": "スタッシュタブのスクロール",
+    "Delve grid": "Delveのグリッド表示"
+  },
+  "ui_ja": {
     "You can clear hotkey by pressing Backspace": "Backspaceキーでクリア",
     "Price check": "価格チェック",
     "Auto-hide Mode": "自動的に隠す",
